@@ -1,0 +1,26 @@
+# calculate a 5-number summary
+///////
+to Calculate the five-number summary involves finding the observations for each quartile as well
+as the minimum and maximum observed values from the data sample.
+We can calculate arbitrary percentile values in Python using the percentile() NumPy
+function. We can use this function to calculate the 1st, 2nd (median), and 3rd quartile values.
+The function takes both an array of observations and a floating point value to specify the
+percentile to calculate in the range of 0 to 100.
+//////
+from numpy import percentile
+from numpy.random import seed
+from numpy.random import rand
+# seed random number generator
+seed(1)
+# generate data sample
+data = rand(1000)
+# calculate quartiles
+quartiles = percentile(data, [25, 50, 75])
+# calculate min/max
+data_min, data_max = data.min(), data.max()
+# display 5-number summary
+print('Min: %.3f' % data_min)
+print('Q1: %.3f' % quartiles[0])
+print('Median: %.3f' % quartiles[1])
+print('Q3: %.3f' % quartiles[2])
+print('Max: %.3f' % data_max)
